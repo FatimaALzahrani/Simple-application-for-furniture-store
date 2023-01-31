@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Cart extends AppCompatActivity {
+public class Cart2 extends AppCompatActivity {
     myAdapterCart adapter;
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -56,7 +56,7 @@ public class Cart extends AppCompatActivity {
         ref = database.getReference();
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.productlist);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Cart.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Cart2.this));
         ref.child("Cart").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,15 +65,15 @@ public class Cart extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Map <Detail,Integer> mp;
                     Detail product = snapshot.getValue(Detail.class);
-                    if(product.getEmail().equals(user.getEmail())) {
-                        sum+=Integer.parseInt(product.getPrice_of_announcement().substring(0,product.getPrice_of_announcement().length()-4));//*product.getNumber();//.substring(0,product.getPrice_of_announcement().length()-4));
-                        product.setPrice_of_announcement(product.getPrice_of_announcement());//*product.getNumber())+" R.S");
-                        productList.add(product);
+                        if(product.getEmail().equals(user.getEmail())) {
+                            sum+=Integer.parseInt(product.getPrice_of_announcement());//*product.getNumber();//.substring(0,product.getPrice_of_announcement().length()-4));
+                            product.setPrice_of_announcement(product.getPrice_of_announcement());//*product.getNumber())+" R.S");
+                            productList.add(product);
 //                            if(np.getValue()==0){
 //                                productList.remove(product);
 //                            }
-                    }
-                    adapter.notifyDataSetChanged();
+                        }
+                        adapter.notifyDataSetChanged();
                 }
                 Collections.reverse(productList);
                 //Query query = ref.child("Cart").orderByChild("email").equalTo(user.getEmail());
@@ -94,11 +94,11 @@ public class Cart extends AppCompatActivity {
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new myAdapterCart(Cart.this, productList, new myAdapterCart.ItemClickListener() {
+        adapter = new myAdapterCart(Cart2.this, productList, new myAdapterCart.ItemClickListener() {
             @Override
             public void onItemClick(Detail p) {
 //                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
-                Intent intent=new Intent(Cart.this,DetailAnnoucement.class);
+                Intent intent=new Intent(Cart2.this,DetailAnnoucement.class);
                 intent.putExtra("name",p.name_of_announcement);
                 intent.putExtra("price",p.price_of_announcement);
                 intent.putExtra("type",p.type_of_announcement);
@@ -156,30 +156,30 @@ public class Cart extends AppCompatActivity {
 //        }
 
     public void announcements(View view) {
-        Intent intent = new Intent(Cart.this, Announcements.class);
+        Intent intent = new Intent(Cart2.this, Announcements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
     public void Fav(View view) {
-        Intent intent = new Intent(Cart.this, Favorite.class);
+        Intent intent = new Intent(Cart2.this, Favorite.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Profile(View view) {
-        Intent intent = new Intent(Cart.this, Profile.class);
+        Intent intent = new Intent(Cart2.this, Profile.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void addannouncements(View view) {
-        Intent intent = new Intent(Cart.this, AddAnnouncements.class);
+        Intent intent = new Intent(Cart2.this, AddAnnouncements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Home(View view) {
-        Intent intent = new Intent(Cart.this, Home.class);
+        Intent intent = new Intent(Cart2.this, Home.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
 

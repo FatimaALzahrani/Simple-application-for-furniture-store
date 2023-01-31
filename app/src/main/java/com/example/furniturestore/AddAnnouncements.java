@@ -21,14 +21,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 public class AddAnnouncements extends AppCompatActivity {
     EditText EDname_of_announcement, EDurl_of_the_announcement_dimensions, EDurl_of_the_announcement_image, EDprice_of_announcement, EDtype_of_announcement;
-    EditText EDcomposition_of_announcement, EDdurability_of_announcement,EDcolor_of_announcement;
+    EditText EDcomposition_of_announcement, EDdurability_of_announcement,EDcolor_of_announcement,EDnum;
     String name_of_announcement, url_of_the_announcement_dimensions, url_of_the_announcement_image, price_of_announcement, type_of_announcement;
-    String composition_of_announcement, durability_of_announcement,color_of_announcement;
+    String composition_of_announcement, durability_of_announcement,color_of_announcement,num;
     ProgressBar progressBar;
     Button Add;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    Product product;
+    Detail product;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +42,11 @@ public class AddAnnouncements extends AppCompatActivity {
         EDcomposition_of_announcement = (EditText) findViewById(R.id.Composition);
         EDdurability_of_announcement = (EditText) findViewById(R.id.Durability);
         EDcolor_of_announcement = (EditText) findViewById(R.id.Color);
+        EDnum = (EditText) findViewById(R.id.num);
         progressBar = findViewById(R.id.ProgressBar);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Announcements");
-        product = new Product();
+        product = new Detail();
         Add = findViewById(R.id.add);
         
         Add.setOnClickListener(new View.OnClickListener() {
@@ -59,17 +60,18 @@ public class AddAnnouncements extends AppCompatActivity {
                 composition_of_announcement = EDcomposition_of_announcement.getText().toString().trim();
                 durability_of_announcement = EDdurability_of_announcement.getText().toString().trim();
                 color_of_announcement = EDcolor_of_announcement.getText().toString().trim();
+                num = EDnum.getText().toString().trim();
                 if (TextUtils.isEmpty(name_of_announcement) && TextUtils.isEmpty(url_of_the_announcement_dimensions) && TextUtils.isEmpty(url_of_the_announcement_image)
                         && TextUtils.isEmpty(price_of_announcement) && TextUtils.isEmpty(type_of_announcement) && TextUtils.isEmpty(composition_of_announcement)
                         && TextUtils.isEmpty(durability_of_announcement)) {
                     Toast.makeText(AddAnnouncements.this, "some data not found please enter it", Toast.LENGTH_SHORT).show();
                 }else {
-                    addDatatoFirebase(name_of_announcement, url_of_the_announcement_dimensions, url_of_the_announcement_image, price_of_announcement, type_of_announcement, composition_of_announcement, durability_of_announcement,color_of_announcement);
+                    addDatatoFirebase(name_of_announcement, url_of_the_announcement_dimensions, url_of_the_announcement_image, price_of_announcement, type_of_announcement, composition_of_announcement, durability_of_announcement,color_of_announcement,num);
                 }
             }
         });
     }
-    private void addDatatoFirebase(String name_of_announcement, String url_of_the_announcement_dimensions, String url_of_the_announcement_image, String price_of_announcement, String type_of_announcement, String composition_of_announcement, String durability_of_announcement,String color_of_announcement) {
+    private void addDatatoFirebase(String name_of_announcement, String url_of_the_announcement_dimensions, String url_of_the_announcement_image, String price_of_announcement, String type_of_announcement, String composition_of_announcement, String durability_of_announcement,String color_of_announcement,String num) {
         product.setName_of_announcement(name_of_announcement);
         product.setUrl_of_the_announcement_image(url_of_the_announcement_image);
         product.setUrl_of_the_announcement_dimensions(url_of_the_announcement_dimensions);
@@ -78,6 +80,7 @@ public class AddAnnouncements extends AppCompatActivity {
         product.setComposition_of_announcement(composition_of_announcement);
         product.setDurability_of_announcement(durability_of_announcement);
         product.setColor_of_announcement(color_of_announcement);
+        product.setNumber(num);
         String id = databaseReference.push().getKey();
         databaseReference.child(id).setValue(product);
         Toast.makeText(AddAnnouncements.this, "Announcement added", Toast.LENGTH_SHORT).show();

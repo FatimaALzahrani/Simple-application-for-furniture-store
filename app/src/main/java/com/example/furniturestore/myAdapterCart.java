@@ -32,7 +32,6 @@ public myAdapterCart(Context context, List<Detail> studentList, myAdapterCart.It
     @Override
     public CartHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart, parent, false);
-
         return new CartHolder(row,listener);
     }
 

@@ -1,14 +1,14 @@
 package com.example.furniturestore;
 
 public class Detail {
-    private int number=0;
+//    private int number=0;
     String name_of_announcement, url_of_the_announcement_dimensions, url_of_the_announcement_image, price_of_announcement, type_of_announcement;
-    String composition_of_announcement, durability_of_announcement,color_of_announcement,Email;
+    String composition_of_announcement, durability_of_announcement,color_of_announcement,Email,number,km;
     Detail(){
 
     }
 
-    public Detail(String name_of_announcement, String url_of_the_announcement_dimensions, String url_of_the_announcement_image, String price_of_announcement, String type_of_announcement, String composition_of_announcement, String durability_of_announcement, String color_of_announcement, String Email, int num) {
+    public Detail(String name_of_announcement, String url_of_the_announcement_image, String price_of_announcement, String type_of_announcement, String color_of_announcement ,String composition_of_announcement, String durability_of_announcement, String url_of_the_announcement_dimensions, String Email,String phonenum){//,String num) {
         this.name_of_announcement = name_of_announcement;
         this.url_of_the_announcement_dimensions = url_of_the_announcement_dimensions;
         this.url_of_the_announcement_image = url_of_the_announcement_image;
@@ -18,14 +18,23 @@ public class Detail {
         this.durability_of_announcement = durability_of_announcement;
         this.color_of_announcement=color_of_announcement;
         this.Email=Email;
-        this.number=num;
+        this.number=phonenum;
+//        this.km=num;
     }
 
-    public int getNumber() {
+    public void setKm(String km) {
+        this.km = km;
+    }
+
+    public String getKm() {
+        return km;
+    }
+
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

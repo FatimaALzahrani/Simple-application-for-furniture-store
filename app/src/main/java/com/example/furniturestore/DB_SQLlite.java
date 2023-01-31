@@ -21,7 +21,7 @@ public class DB_SQLlite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table Users(Email TEXT PRIMARY KEY,Name TEXT,Phone TEXT,Password TEXT)");
         sqLiteDatabase.execSQL("create table Product(Name TEXT,Image TEXT,Price TEXT,Type TEXT,Color TEXT,Composition TEXT,Durability TEXT,ImageD TEXT)");
-        sqLiteDatabase.execSQL("create table Cart(Name TEXT,Image TEXT,Price TEXT,Type TEXT,Color TEXT,Composition TEXT,Durability TEXT,ImageD TEXT,Email TEXT)");//km TEXT,
+        sqLiteDatabase.execSQL("create table Cart(Name TEXT PRIMARY KEY,Image TEXT,Price TEXT,Type TEXT,Color TEXT,Composition TEXT,Durability TEXT,ImageD TEXT,Email TEXT,num TEXT)");//km TEXT,
     }
 
     @Override
@@ -64,8 +64,7 @@ public class DB_SQLlite extends SQLiteOpenHelper {
             return true;
         }
     }
-
-        public boolean insertCart(String Name,String Image,String Price,String Type,String Color,String Composition,String Durability,String ImageD,String Email){
+    public boolean insertCart(String Name,String Image,String Price,String Type,String Color,String Composition,String Durability,String ImageD,String Email,String num){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("Name",Name);
@@ -77,6 +76,7 @@ public class DB_SQLlite extends SQLiteOpenHelper {
         contentValues.put("Durability",Durability);
         contentValues.put("Color",Color);
         contentValues.put("Email",Email);
+        contentValues.put("num",num);
         long result=db.insert("Cart",null,contentValues);//بيضيف البيانات لجدولنا وترجع رقم
         if(result==-1){//لو سالب واحد القيمه يعني فولس اي ما انضافت القيمه , ومو 0 لان البداية بالجداول عند صفر
             return false;
@@ -86,12 +86,12 @@ public class DB_SQLlite extends SQLiteOpenHelper {
     }
 
     public boolean checkUser(SQLiteDatabase db,String email,String pass){
-       Cursor cursor= db.rawQuery("SELECT * FROM Users Where Email="+email+" and Password="+pass+" ",null);
-       if(cursor.getCount()>0){
-           return true;
-       }else{
-           return false;
-       }
+        Cursor cursor= db.rawQuery("SELECT * FROM Users Where Email="+email+" and Password="+pass+" ",null);
+        if(cursor.getCount()>0){
+            return true;
+        }else{
+            return false;
+        }
     }
     public ArrayList getAllUsers(){
         ArrayList arrayList=new ArrayList();
@@ -129,24 +129,24 @@ public class DB_SQLlite extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-    public ArrayList<Product> getAllCart(){
+    public ArrayList<Detail> getAllCart(){
         ArrayList arrayList=new ArrayList();
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("select * from Cart",null);
         res.moveToFirst();//روح لاول صف
         while (res.isAfterLast()==false){
-            String t0=res.getString(0);//الرقم يمثل رقم العمود
-            String t1=res.getString(1);//الرقم يمثل رقم العمود
-            String t2=res.getString(2);
-            String t3=res.getString(3);
-            String t4=res.getString(4);//الرقم يمثل رقم العمود
-            String t5=res.getString(5);//الرقم يمثل رقم العمود
-            String t6=res.getString(6);
-            String t7=res.getString(7);
-            String t8=res.getString(8);
-            int t9=res.getInt(9);
+            String t0 = res.getString(0);//الرقم يمثل رقم العمود
+            String t1 = res.getString(1);//الرقم يمثل رقم العمود
+            String t2 = res.getString(2);
+            String t3 = res.getString(3);
+            String t4 = res.getString(4);//الرقم يمثل رقم العمود
+            String t5 = res.getString(5);//الرقم يمثل رقم العمود
+            String t6 = res.getString(6);
+            String t7 = res.getString(7);
+            String t8 = res.getString(8);
+//                String t9 = res.getString(9);
 //            String t4=res.getString(4);//الرقم يمثل رقمم العمود
-            Detail product=new Detail(t0,t1,t2,t3,t4,t5,t6,t7,t8,t9);//,t4);
+            Detail product = new Detail(t0, t1, t2, t3, t4, t5, t6, t7, t8, "1");//,t9);//,t4);
             arrayList.add(product);
             res.moveToNext();//يروح الصف الثاني
         }
@@ -155,7 +155,7 @@ public class DB_SQLlite extends SQLiteOpenHelper {
     public int getSum(){
         int sum=0;
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res=db.rawQuery("select Price from Carts",null);
+        Cursor res=db.rawQuery("select Price from Cart",null);
         res.moveToFirst();//روح لاول صف
         while (res.isAfterLast()==false){
             sum+=Integer.parseInt(res.getString(0));//*Integer.parseInt(res.getString(4));
@@ -166,7 +166,7 @@ public class DB_SQLlite extends SQLiteOpenHelper {
     public int delete(String ID){
         SQLiteDatabase db=this.getWritableDatabase();
         String whereArgs[]={ID};
-        return db.delete("Cart","ID =?",whereArgs);
+        return db.delete("Cart","Name =?",whereArgs);
     }
     public boolean update(String ID,String name,String Image,String Price){//,String km){
         SQLiteDatabase db=this.getWritableDatabase();

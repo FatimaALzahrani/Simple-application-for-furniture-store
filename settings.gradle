@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        jcenter()
         maven {
             url  "https://cardinalcommerceprod.jfrog.io/artifactory/android"
             credentials {
@@ -19,6 +20,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
         maven {
             url  "https://cardinalcommerceprod.jfrog.io/artifactory/android"
             credentials {

@@ -22,7 +22,6 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/del"
         android:layout_toEndOf="@+id/img"
         android:fontFamily="@font/ascendantserifregular"
         android:gravity="center"
@@ -42,22 +41,12 @@
         android:layout_toLeftOf="@id/img"
         android:layout_toEndOf="@+id/img"
         android:fontFamily="@font/ascendantserifregular"
-        android:gravity="center"
+        android:gravity="left"
         android:paddingTop="8dp"
         android:text="@string/price"
         android:textSize="24dp" />
 
-    <ImageView
-        android:id="@+id/del"
-        android:layout_width="77dp"
-        android:layout_height="68dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="1dp"
-        android:paddingTop="10dp"
-        android:src="@drawable/rubbn" />
-
-<!--    <NumberPicker-->
+    <!--    <NumberPicker-->
 <!--        android:id="@+id/num"-->
 <!--        android:layout_width="70dp"-->
 <!--        android:layout_height="40dp"-->
@@ -84,41 +73,6 @@
 <!--        app:initialNumber="1"-->
 <!--        app:textColor="#6C313F"-->
 <!--        app:textSize="10sp"></com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>-->
-
-    <ImageView
-        android:id="@+id/incbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/del"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginLeft="83dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="6dp"
-        android:src="@drawable/incr" />
-
-    <TextView
-        android:id="@+id/num"
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/del"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="@string/one"
-        android:textSize="20dp" />
-
-    <ImageView
-        android:id="@+id/decbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/del"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="56dp"
-        android:src="@drawable/decr" />
 
 </RelativeLayout>
 

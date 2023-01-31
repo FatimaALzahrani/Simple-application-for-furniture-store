@@ -45,7 +45,7 @@
         <LinearLayout
             android:id="@+id/l"
             android:layout_width="match_parent"
-            android:layout_height="540dp"
+            android:layout_height="480dp"
             android:layout_below="@id/home"
             android:orientation="vertical">
 
@@ -62,12 +62,11 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
                     <!--https://icons8.com/icon/14736/customer-->
                     <ImageView
@@ -118,11 +117,10 @@
                     android:background="#EAEAEA" />
 
                 <LinearLayout
-                    android:id="@+id/edit_about"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="35dp"
@@ -173,7 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="35dp"
@@ -229,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="35dp"
@@ -282,11 +280,11 @@
                     android:background="#EAEAEA" />
 
                 <LinearLayout
-                    android:id="@+id/edit_contact_no"
+                    android:id="@+id/ll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="10dp">
 
                     <ImageView
                         android:layout_width="35dp"
@@ -317,7 +315,6 @@
                         </LinearLayout>
 
                         <TextView
-                            android:id="@+id/location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="map"
@@ -336,14 +333,14 @@
         </LinearLayout>
 
         <Button
-            android:fontFamily="@font/poppinsblack"
+            android:layout_marginTop="5dp"
             android:id="@+id/Sigout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/l"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="2dp"
             android:background="@drawable/button_border"
+            android:fontFamily="@font/poppinsblack"
             android:text="@string/logout" />
 
 
@@ -366,7 +363,6 @@
             android:background="#F5F5F5"
             android:orientation="horizontal">
             <ImageView
-                android:id="@+id/imageView5"
                 android:layout_width="64dp"
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/img_2"
@@ -377,7 +373,6 @@
 <!--                android:background="#1C1819"-->
 <!--                />-->
             <ImageView
-                android:id="@+id/imageView4"
                 android:layout_width="64dp"
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/cart"
@@ -388,7 +383,6 @@
 <!--                android:background="#1C1819"-->
 <!--                />-->
             <ImageView
-                android:id="@+id/imageView3"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:onClick="addannouncements"
@@ -399,7 +393,6 @@
 <!--                android:background="#1C1819"-->
 <!--                />-->
             <ImageView
-                android:id="@+id/imageView2"
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:onClick="announcements"
@@ -410,7 +403,6 @@
 <!--                android:background="#1C1819"-->
 <!--                />-->
             <ImageView
-                android:id="@+id/imageView1"
                 android:layout_width="60dp"
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/home"

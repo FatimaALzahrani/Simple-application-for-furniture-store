@@ -1,11 +1,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="50dp" android:elevation="10dp" android:layout_margin="10dp" android:orientation="vertical">
     <androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
-        <TextView android:layout_width="7dp" android:layout_height="wrap_content" android:layout_marginLeft="3dp" android:text="1" android:textSize="25dp" android:gravity="center" android:id="@+id/recid"/>
-        <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:text="White Shoes" android:textSize="25dp" android:gravity="center" android:id="@+id/recpname"/>
-        <TextView android:layout_width="70dp" android:layout_height="wrap_content" android:text="250" android:textSize="25dp" android:layout_gravity="center" android:id="@+id/recpprice"/>
+        <TextView android:layout_width="7dp" android:layout_height="wrap_content" android:layout_marginLeft="3dp" android:text="1" android:textSize="25dp" android:gravity="center" />
+        <TextView android:layout_width="120dp" android:layout_height="wrap_content" android:text="White Shoes" android:textSize="25dp" android:gravity="center" />
+        <TextView android:layout_width="70dp" android:layout_height="wrap_content" android:text="250" android:textSize="25dp" android:layout_gravity="center" />
         <ImageView android:id="@+id/incbtn" android:layout_width="20dp" android:layout_height="20dp" android:background="#ffff" android:layout_gravity="center" android:src="@drawable/incr"/>
         <TextView android:layout_width="45dp" android:layout_height="wrap_content" android:text="11" android:textSize="25dp" android:layout_gravity="center" android:gravity="center" android:id="@+id/recqnt"/>
         <ImageView android:id="@+id/decbtn" android:layout_width="20dp" android:layout_height="20dp" android:layout_gravity="center" android:src="@drawable/decr"/>
-        <ImageButton android:id="@+id/delbtn" android:layout_width="50dp" android:layout_height="40dp" android:background="#ffff" android:layout_gravity="center" android:src="@drawable/delete"/>
+        <ImageButton
+            android:layout_width="50dp" android:layout_height="40dp" android:background="#ffff" android:layout_gravity="center" android:src="@drawable/delete"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>

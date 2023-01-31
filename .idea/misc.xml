@@ -11,29 +11,34 @@
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/borf.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/button_border.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/editext_border.xml" value="0.1" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/ic_add.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/item_border.xml" value="0.1265" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/item_border2.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/search_view_bord.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/wrong_border.xml" value="0.1785" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/drawable/yes_border.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/actitvity_cartdata.xml" value="0.1" />
-        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_add_announcements.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_add_announcements.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_announcements.xml" value="0.22" />
-        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_cart.xml" value="0.22" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_cart.xml" value="0.21518987341772153" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_cartdata.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_check_out.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_detail_annoucement.xml" value="0.22" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_favorite.xml" value="0.14492753623188406" />
-        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_home.xml" value="0.1392857142857143" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_main2.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_maps.xml" value="0.13496376811594202" />
-        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_profile.xml" value="0.24740484429065743" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_profile.xml" value="0.1" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/activity_sing_up.xml" value="0.22" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/cart.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/details.xml" value="0.13496376811594202" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/editext_border.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/fav.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/item.xml" value="0.22" />
         <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/layout/singlerowdesign.xml" value="0.1" />
+        <entry key="..\:/Users/12fat/AndroidStudioProjects/FurnitureStore/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

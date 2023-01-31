@@ -6,7 +6,6 @@
     android:layout_width="170dp"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
-    android:id="@+id/item"
     android:background="@drawable/item_border"
     >
 
@@ -51,7 +50,8 @@
 
         <TextView
             android:id="@+id/add"
-            android:layout_width="130dp"
+            android:layout_marginStart="5dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
@@ -62,13 +62,19 @@
             android:textStyle="bold" />
         <ImageView
             android:id="@+id/fav"
-            android:layout_width="30dp"
+            android:layout_width="25dp"
             android:layout_height="30dp"
             android:src="@drawable/star"
+            android:layout_marginStart="5dp"
             android:backgroundTint="@color/black"
-
             />
-
+        <ImageView
+            android:id="@+id/call"
+            android:layout_marginStart="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/call"
+            />
     </LinearLayout>
 <!--    <ImageView-->
 <!--        android:layout_width="50dp"-->

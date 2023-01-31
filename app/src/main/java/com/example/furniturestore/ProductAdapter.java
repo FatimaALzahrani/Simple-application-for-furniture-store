@@ -26,6 +26,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     private ItemClickListener mItemListener;
     private OnItemClickListener listener;
     private OnItemClickListener2 listener2;
+    private OnItemClickListener3 listener3;
 
     public ProductAdapter(Context context, List<Product> studentList, ProductAdapter.ItemClickListener itemClickListener) {
         this.context = context;
@@ -69,10 +70,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
     public void setOnItemClicked2(OnItemClickListener2 clickListener){
         listener2=clickListener;
     }
+    public interface OnItemClickListener3 {
+        void onItemClicked3(int position);
+    }
+    public void setOnItemClicked3(OnItemClickListener3 clickListener){
+        listener3=clickListener;
+    }
 
     class ProductHolder extends RecyclerView.ViewHolder {
         TextView Name, Price;
-        ImageView Image,Fav;
+        ImageView Image,Fav,Call;
         TextView Add;
         public ProductHolder(View itemView, OnItemClickListener listener, OnItemClickListener2 listener2) {
             super(itemView);
@@ -80,6 +87,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
             Price = (TextView) itemView.findViewById(R.id.price);
             Image = (ImageView) itemView.findViewById(R.id.img);
             Fav = (ImageView) itemView.findViewById(R.id.fav);
+            Call = (ImageView) itemView.findViewById(R.id.call);
             Add = (TextView) itemView.findViewById(R.id.add);
             Add.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,6 +99,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
                 @Override
                 public void onClick(View view) {
                     ProductAdapter.this.listener2.onItemClicked2(getAbsoluteAdapterPosition());
+                }
+            });
+            Call.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ProductAdapter.this.listener3.onItemClicked3(getAbsoluteAdapterPosition());
                 }
             });
         }

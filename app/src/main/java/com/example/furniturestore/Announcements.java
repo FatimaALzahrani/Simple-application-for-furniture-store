@@ -2,11 +2,17 @@ package com.example.furniturestore;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,14 +44,14 @@ public class Announcements extends AppCompatActivity {
     private SearchView searchView;
     DatabaseReference ref;
     List<Product> productList = new ArrayList<>();
+    List<Detail> productListD = new ArrayList<>();
     private DatabaseReference reference;
     private String userID;
     DatabaseReference databaseReference;
+    static int PERMISSION_CODE= 100;
     private FirebaseDatabase firebaseDatabase;
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements);
 //        recview = (RecyclerView) findViewById(R.id.productlist);
@@ -60,10 +66,14 @@ public class Announcements extends AppCompatActivity {
                 productList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Product product = snapshot.getValue(Product.class);
+                    Detail product2 = snapshot.getValue(Detail.class);
+                    product.setPrice_of_announcement(product.getPrice_of_announcement()+" R.S");
                     productList.add(product);
+                    productListD.add(product2);
                     adapter.notifyDataSetChanged();
                 }
                 Collections.reverse(productList);
+                Collections.reverse(productListD);
             }
             @Override
             public void onCancelled(DatabaseError databaseError){
@@ -109,66 +119,66 @@ public class Announcements extends AppCompatActivity {
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.getChildrenCount()>0) {
-                            if (FMA_Map2.containsKey(product)) {
-                                for(Map.Entry s:FMA_Map2.entrySet()){
-                                    if(s.getKey()==product){
-                                        Query queryRef = ref.child("Cart").orderByChild("name_of_announcement").equalTo(product.name_of_announcement);
-                                        queryRef.addChildEventListener(new ChildEventListener() {
-                                          @Override
-                                          public void onChildAdded(DataSnapshot snapshot, String previousChild) {
-                                              snapshot.getRef().setValue(null);
-                                          }
-                                            @Override
-                                            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        if (FMA_Map2.containsKey(product)) {
+                            for(Map.Entry s:FMA_Map2.entrySet()){
+                                if(s.getKey()==product){
+                                    Query queryRef = ref.child("Cart").orderByChild("name_of_announcement").equalTo(product.name_of_announcement);
+                                    queryRef.addChildEventListener(new ChildEventListener() {
+                                        @Override
+                                        public void onChildAdded(DataSnapshot snapshot, String previousChild){
+                                            snapshot.getRef().setValue(null);
+                                        }
 
-                                            }
-                                            @Override
-                                            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                                        @Override
+                                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                                            }
-                                            @Override
-                                            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                                        }
+                                        @Override
+                                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
-                                            }
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
+                                        }
+                                        @Override
+                                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                                            }
-                                        });
-                                        Integer count2=((Number)s.getValue()).intValue()+1;
-                                        product.setName_of_announcement(productList.get(position).name_of_announcement);
-                                        product.setUrl_of_the_announcement_image(productList.get(position).url_of_the_announcement_image);
-                                        product.setUrl_of_the_announcement_dimensions(productList.get(position).url_of_the_announcement_dimensions);
-                                        product.setPrice_of_announcement(productList.get(position).price_of_announcement);
-                                        product.setType_of_announcement(productList.get(position).type_of_announcement);
-                                        product.setComposition_of_announcement(productList.get(position).composition_of_announcement);
-                                        product.setDurability_of_announcement(productList.get(position).durability_of_announcement);
-                                        product.setColor_of_announcement(productList.get(position).color_of_announcement);
-                                        product.setEmail(user.getEmail());
-                                        FMA_Map2.put((Detail)(s.getKey()),count2);
-                                        product.setNumber(count2);
-                                    }
+                                        }
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                    Integer count2=((Number)s.getValue()).intValue()+1;
+                                    product.setName_of_announcement(productList.get(position).name_of_announcement);
+                                    product.setUrl_of_the_announcement_image(productList.get(position).url_of_the_announcement_image);
+                                    product.setUrl_of_the_announcement_dimensions(productList.get(position).url_of_the_announcement_dimensions);
+                                    product.setPrice_of_announcement(productList.get(position).price_of_announcement);
+                                    product.setType_of_announcement(productList.get(position).type_of_announcement);
+                                    product.setComposition_of_announcement(productList.get(position).composition_of_announcement);
+                                    product.setDurability_of_announcement(productList.get(position).durability_of_announcement);
+                                    product.setColor_of_announcement(productList.get(position).color_of_announcement);
+                                    product.setEmail(user.getEmail());
+                                    FMA_Map2.put((Detail)(s.getKey()),count2);
+                                    product.setNumber(user.getPhoneNumber());
                                 }
-                            } else {
-                                FMA_Map2.put(product,1);
-                                product.setName_of_announcement(productList.get(position).name_of_announcement);
-                                product.setUrl_of_the_announcement_image(productList.get(position).url_of_the_announcement_image);
-                                product.setUrl_of_the_announcement_dimensions(productList.get(position).url_of_the_announcement_dimensions);
-                                product.setPrice_of_announcement(productList.get(position).price_of_announcement);
-                                product.setType_of_announcement(productList.get(position).type_of_announcement);
-                                product.setComposition_of_announcement(productList.get(position).composition_of_announcement);
-                                product.setDurability_of_announcement(productList.get(position).durability_of_announcement);
-                                product.setColor_of_announcement(productList.get(position).color_of_announcement);
-                                product.setEmail(user.getEmail());
-                                product.setNumber(1);
-                                firebaseDatabase = FirebaseDatabase.getInstance();
-                                String id = firebaseDatabase.getReference("Cart").push().getKey();
-                                firebaseDatabase.getReference("Cart").child(id).setValue(product);
                             }
+                        } else {
+                            product.setName_of_announcement(productList.get(position).name_of_announcement);
+                            product.setUrl_of_the_announcement_image(productList.get(position).url_of_the_announcement_image);
+                            product.setUrl_of_the_announcement_dimensions(productList.get(position).url_of_the_announcement_dimensions);
+                            product.setPrice_of_announcement(productList.get(position).price_of_announcement);
+                            product.setType_of_announcement(productList.get(position).type_of_announcement);
+                            product.setComposition_of_announcement(productList.get(position).composition_of_announcement);
+                            product.setDurability_of_announcement(productList.get(position).durability_of_announcement);
+                            product.setColor_of_announcement(productList.get(position).color_of_announcement);
+                            product.setEmail(user.getEmail());
+                            product.setNumber(user.getPhoneNumber());
+                            FMA_Map2.put(product,1);
+                            firebaseDatabase = FirebaseDatabase.getInstance();
+                            String id = firebaseDatabase.getReference("Cart").push().getKey();
+                            firebaseDatabase.getReference("Cart").child(id).setValue(product);
+                        }
                         Toast.makeText(Announcements.this,"Announcements Added to Cart",Toast.LENGTH_SHORT).show();
                     }
-                    }
+
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -193,10 +203,33 @@ public class Announcements extends AppCompatActivity {
                 product.setDurability_of_announcement(productList.get(position).durability_of_announcement);
                 product.setColor_of_announcement(productList.get(position).color_of_announcement);
                 product.setEmail(user.getEmail());
-                firebaseDatabase = FirebaseDatabase.getInstance();
-                String id =firebaseDatabase.getReference("Favorite").push().getKey();
-                firebaseDatabase.getReference("Favorite").child(id).setValue(product);
-                Toast.makeText(Announcements.this,"Announcements Added to Favorite",Toast.LENGTH_SHORT);
+//                firebaseDatabase = FirebaseDatabase.getInstance();
+//                String id =firebaseDatabase.getReference("Favorite").push().getKey();
+//                firebaseDatabase.getReference("Favorite").child(id).setValue(product);
+                String Name=productList.get(position).name_of_announcement;
+                String Price=productList.get(position).price_of_announcement;
+                String composition=productList.get(position).composition_of_announcement;
+                String durability=productList.get(position).durability_of_announcement;
+                String dimensions=productList.get(position).durability_of_announcement;
+                String image=productList.get(position).url_of_the_announcement_image;
+                String type=productList.get(position).type_of_announcement;
+                String color=productList.get(position).color_of_announcement;
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DB_SQLlite DB=new DB_SQLlite(Announcements.this);
+                DB.insertCart(Name,image,Price,type,color,composition,durability,dimensions,user.getEmail(),user.getPhoneNumber());
+                Toast.makeText(Announcements.this,"Announcements Added to Favorite",Toast.LENGTH_SHORT).show();
+            }
+        });
+        adapter.setOnItemClicked3(new ProductAdapter.OnItemClickListener3() {
+            @Override
+            public void onItemClicked3(int position) {
+                String phoneno=productListD.get(position).getNumber();
+                if (ContextCompat.checkSelfPermission(Announcements.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(Announcements.this,new String[]{Manifest.permission.CALL_PHONE},PERMISSION_CODE);
+                }
+                Intent i = new Intent(Intent.ACTION_CALL);
+                i.setData(Uri.parse("tel:"+phoneno));
+                startActivity(i);
             }
         });
 
@@ -214,7 +247,6 @@ public class Announcements extends AppCompatActivity {
                             List<Product> searchList = new ArrayList<Product>();
                             for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                 Product product = snapshot.getValue(Product.class);
-                                product.setPrice_of_announcement(product.getPrice_of_announcement()+" R.S");
                                 if(product.getName_of_announcement().toLowerCase().contains(query.toLowerCase()) || product.getType_of_announcement().toLowerCase().contains(query.toLowerCase())
                                         ||product.getColor_of_announcement().toLowerCase().contains(query.toLowerCase()))
                                     searchList.add(product);
@@ -447,3 +479,4 @@ public class Announcements extends AppCompatActivity {
 //
 //            }
 //        });}
+

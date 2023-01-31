@@ -25,11 +25,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Cart extends AppCompatActivity {
+public class Cart3 extends AppCompatActivity {
     myAdapterCart adapter;
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -37,37 +36,38 @@ public class Cart extends AppCompatActivity {
     DatabaseReference ref;
     List<Detail> productList = new ArrayList<>();
     List<Product> productList2 = new ArrayList<>();
-    int sum=0;
-    private TextView summ,recqnt;
+    int sum = 0;
+    private TextView summ, recqnt;
     private NumberPicker np;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
-        summ=(TextView) findViewById(R.id.smmm);
-        recqnt=(TextView)findViewById(R.id.recqnt);
+        summ = (TextView) findViewById(R.id.smmm);
+        recqnt = (TextView) findViewById(R.id.recqnt);
 
 //        Toast.makeText(this,ref.child("Cart").orderByChild("email").equalTo(user.getEmail()).,Toast.LENGTH_LONG).show();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        reference= FirebaseDatabase.getInstance().getReference("Users");
-        userID=user.getUid();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = user.getUid();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         ref = database.getReference();
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.productlist);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Cart.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Cart3.this));
         ref.child("Cart").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 productList.clear();
-                sum=0;
+                sum = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Map <Detail,Integer> mp;
+                    Map<Detail, Integer> mp;
                     Detail product = snapshot.getValue(Detail.class);
-                    if(product.getEmail().equals(user.getEmail())) {
-                        sum+=Integer.parseInt(product.getPrice_of_announcement().substring(0,product.getPrice_of_announcement().length()-4));//*product.getNumber();//.substring(0,product.getPrice_of_announcement().length()-4));
-                        product.setPrice_of_announcement(product.getPrice_of_announcement());//*product.getNumber())+" R.S");
+                    if (product.getEmail().equals(user.getEmail())) {
+                        product.setPrice_of_announcement(product.price_of_announcement.substring(0,(product.price_of_announcement.length())-4));
+                        sum += Integer.parseInt(product.getPrice_of_announcement());//*product.getNumber();//.substring(0,product.getPrice_of_announcement().length()-4));
+                        product.setPrice_of_announcement(product.getPrice_of_announcement()+" R.S");//*product.getNumber())+" R.S");
                         productList.add(product);
 //                            if(np.getValue()==0){
 //                                productList.remove(product);
@@ -77,13 +77,14 @@ public class Cart extends AppCompatActivity {
                 }
                 Collections.reverse(productList);
                 //Query query = ref.child("Cart").orderByChild("email").equalTo(user.getEmail());
-                if(!dataSnapshot.exists() || sum==0){
-                    ImageView imgf=(ImageView) findViewById(R.id.imgf);
-                    int imgid=getBaseContext().getResources().getIdentifier("emptycart","drawable",getBaseContext().getPackageName());
+                if (!dataSnapshot.exists() || sum == 0) {
+                    ImageView imgf = (ImageView) findViewById(R.id.imgf);
+                    int imgid = getBaseContext().getResources().getIdentifier("emptycart", "drawable", getBaseContext().getPackageName());
                     imgf.setImageResource(imgid);
                 }
-                summ.setText("Total : "+sum+" R.S");
+                summ.setText("Total : " + sum + " R.S");
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 //        Query query = ref.child("Cart").orderByChild("email").equalTo(user.getEmail());
@@ -94,19 +95,19 @@ public class Cart extends AppCompatActivity {
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new myAdapterCart(Cart.this, productList, new myAdapterCart.ItemClickListener() {
+        adapter = new myAdapterCart(Cart3.this, productList, new myAdapterCart.ItemClickListener() {
             @Override
             public void onItemClick(Detail p) {
 //                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
-                Intent intent=new Intent(Cart.this,DetailAnnoucement.class);
-                intent.putExtra("name",p.name_of_announcement);
-                intent.putExtra("price",p.price_of_announcement);
-                intent.putExtra("type",p.type_of_announcement);
-                intent.putExtra("color",p.color_of_announcement);
-                intent.putExtra("composition",p.composition_of_announcement);
-                intent.putExtra("durability",p.durability_of_announcement);
-                intent.putExtra("dimensions",p.url_of_the_announcement_dimensions);
-                intent.putExtra("image",p.url_of_the_announcement_image);
+                Intent intent = new Intent(Cart3.this, DetailAnnoucement.class);
+                intent.putExtra("name", p.name_of_announcement);
+                intent.putExtra("price", p.price_of_announcement);
+                intent.putExtra("type", p.type_of_announcement);
+                intent.putExtra("color", p.color_of_announcement);
+                intent.putExtra("composition", p.composition_of_announcement);
+                intent.putExtra("durability", p.durability_of_announcement);
+                intent.putExtra("dimensions", p.url_of_the_announcement_dimensions);
+                intent.putExtra("image", p.url_of_the_announcement_image);
                 startActivity(intent);
             }
         });
@@ -156,35 +157,35 @@ public class Cart extends AppCompatActivity {
 //        }
 
     public void announcements(View view) {
-        Intent intent = new Intent(Cart.this, Announcements.class);
+        Intent intent = new Intent(Cart3.this, Announcements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
+
     public void Fav(View view) {
-        Intent intent = new Intent(Cart.this, Favorite.class);
+        Intent intent = new Intent(Cart3.this, Favorite.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Profile(View view) {
-        Intent intent = new Intent(Cart.this, Profile.class);
+        Intent intent = new Intent(Cart3.this, Profile.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void addannouncements(View view) {
-        Intent intent = new Intent(Cart.this, AddAnnouncements.class);
+        Intent intent = new Intent(Cart3.this, AddAnnouncements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Home(View view) {
-        Intent intent = new Intent(Cart.this, Home.class);
+        Intent intent = new Intent(Cart3.this, Home.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
-
-    }    }
-//
+    }
+}
 //    public void increment(View view) {
 //        recqnt.setText(Integer.parseInt(recqnt.getText().toString())+1);
 //        Detail d=new Detail();
@@ -233,63 +234,63 @@ public class Cart extends AppCompatActivity {
 //        });
 //    }
 //}
+
+//    RecyclerView recview;
+//    myAdapterCart adapter;
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_cart);
+//        recview = (RecyclerView) findViewById(R.id.productlist);
+//        recview.setLayoutManager(new LinearLayoutManager(this));
+//        FirebaseRecyclerOptions<Detail> options = new FirebaseRecyclerOptions.Builder<Detail>()
+//                .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart"), Detail.class).build();
+//        adapter=new myAdapterCart(options, new myAdapterCart.ItemClickListener() {
+//            @Override
+//            public void onItemClick(Detail p) {
+////                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
+//                Intent intent=new Intent(Cart.this,DetailAnnoucement.class);
+//                intent.putExtra("name",p.name_of_announcement);
+//                intent.putExtra("price",p.price_of_announcement);
+//                intent.putExtra("type",p.type_of_announcement);
+//                intent.putExtra("color",p.color_of_announcement);
+//                intent.putExtra("composition",p.composition_of_announcement);
+//                intent.putExtra("durability",p.durability_of_announcement);
+//                intent.putExtra("dimensions",p.url_of_the_announcement_dimensions);
+//                intent.putExtra("image",p.url_of_the_announcement_image);
+//                startActivity(intent);
+//            }
+//        });
+//        recview.setAdapter(adapter);
+//    }
+//    private void show(){
 //
-////    RecyclerView recview;
-////    myAdapterCart adapter;
-////    @Override
-////    protected void onCreate(Bundle savedInstanceState) {
-////        super.onCreate(savedInstanceState);
-////        setContentView(R.layout.activity_cart);
-////        recview = (RecyclerView) findViewById(R.id.productlist);
-////        recview.setLayoutManager(new LinearLayoutManager(this));
-////        FirebaseRecyclerOptions<Detail> options = new FirebaseRecyclerOptions.Builder<Detail>()
-////                .setQuery(FirebaseDatabase.getInstance().getReference().child("Cart"), Detail.class).build();
-////        adapter=new myAdapterCart(options, new myAdapterCart.ItemClickListener() {
-////            @Override
-////            public void onItemClick(Detail p) {
-//////                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
-////                Intent intent=new Intent(Cart.this,DetailAnnoucement.class);
-////                intent.putExtra("name",p.name_of_announcement);
-////                intent.putExtra("price",p.price_of_announcement);
-////                intent.putExtra("type",p.type_of_announcement);
-////                intent.putExtra("color",p.color_of_announcement);
-////                intent.putExtra("composition",p.composition_of_announcement);
-////                intent.putExtra("durability",p.durability_of_announcement);
-////                intent.putExtra("dimensions",p.url_of_the_announcement_dimensions);
-////                intent.putExtra("image",p.url_of_the_announcement_image);
-////                startActivity(intent);
-////            }
-////        });
-////        recview.setAdapter(adapter);
-////    }
-////    private void show(){
-////
-////    }
-////    @Override
-////    protected void onStart() {
-////        super.onStart();
-////        adapter.startListening();
-////    }
-////
-////    @Override
-////    protected void onStop() {
-////        super.onStop();
-////        adapter.stopListening();
-////    }
-////    public void Home(View view) {
-////        Intent intent=new Intent(Cart.this,Home.class);
-////        startActivity(intent);
-////    }
-////    public void Profile(View view) {
-////        Intent intent=new Intent(Cart.this,Profile.class);
-////        startActivity(intent);
-////    }
-////    public void addannouncements(View view) {
-////        Intent intent=new Intent(Cart.this,AddAnnouncements.class);
-////        startActivity(intent);
-////    }
-////    public void announcements(View view) {
-////        Intent intent=new Intent(Cart.this,Announcements.class);
-////        startActivity(intent);
-////    }
-////}
+//    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        adapter.stopListening();
+//    }
+//    public void Home(View view) {
+//        Intent intent=new Intent(Cart.this,Home.class);
+//        startActivity(intent);
+//    }
+//    public void Profile(View view) {
+//        Intent intent=new Intent(Cart.this,Profile.class);
+//        startActivity(intent);
+//    }
+//    public void addannouncements(View view) {
+//        Intent intent=new Intent(Cart.this,AddAnnouncements.class);
+//        startActivity(intent);
+//    }
+//    public void announcements(View view) {
+//        Intent intent=new Intent(Cart.this,Announcements.class);
+//        startActivity(intent);
+//    }
+//}
