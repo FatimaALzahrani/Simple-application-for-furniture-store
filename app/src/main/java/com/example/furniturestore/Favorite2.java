@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,14 @@ public class Favorite2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite2);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
         courseRV = findViewById(R.id.idRVCourse);
         recyclerDataArrayList = new ArrayList<>();
         DB_SQLlite DB =new DB_SQLlite(Favorite2.this);
