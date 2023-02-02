@@ -29,11 +29,11 @@
         android:layout_marginTop="70dp">
 
         <TextView
-            android:fontFamily="@font/stayland"
             android:id="@+id/home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/stayland"
             android:gravity="center"
             android:text="@string/profile"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -57,7 +57,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="520dp"
                 android:background="#F5F5F5"
                 android:orientation="vertical">
 
@@ -337,10 +337,12 @@
             android:id="@+id/Sigout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/l"
+            android:layout_above="@id/nav"
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
             android:layout_centerHorizontal="true"
             android:background="@drawable/button_border"
-            android:fontFamily="@font/poppinsblack"
+            android:fontFamily="@font/clustdemo"
             android:text="@string/logout" />
 
 

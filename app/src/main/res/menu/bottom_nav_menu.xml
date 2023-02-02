@@ -12,12 +12,11 @@
             android:id="@+id/annou"
             android:title="Announcements"
             android:icon="@drawable/fu"
-            app:showAsAction="ifRoom"
             />
 
         <item
             android:id="@+id/plus"
-            android:title=""
+            android:title="Add Announcements"
             app:showAsAction="ifRoom"
            />
 

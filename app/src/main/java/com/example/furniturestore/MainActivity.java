@@ -1,10 +1,12 @@
 package com.example.furniturestore;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -27,7 +29,16 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        },3000);
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+        actionBar.setTitle(" ");
+        actionBar.hide();
     }
 //    public void login(View v){
 //        Intent intent=new Intent(MainActivity.this,Login.class);

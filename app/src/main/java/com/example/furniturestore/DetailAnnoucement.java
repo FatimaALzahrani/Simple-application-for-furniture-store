@@ -1,5 +1,6 @@
 package com.example.furniturestore;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -25,6 +26,14 @@ public class DetailAnnoucement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_annoucement);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
         ImageView imageView = (ImageView) findViewById(R.id.img);
         ImageView imageView2 =(ImageView) findViewById(R.id.imgD);
         TextView name = (TextView) findViewById(R.id.namep);

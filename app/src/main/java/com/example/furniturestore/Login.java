@@ -1,10 +1,12 @@
 package com.example.furniturestore;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,10 +14,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,6 +37,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private DBHelper DB;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,15 @@ public class Login extends AppCompatActivity {
         btnlogin = (Button) findViewById(R.id.btnlogin);
         progressBar = (ProgressBar) findViewById(R.id.prog);
         mAuth=FirebaseAuth.getInstance();
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
     }
     public void sing_in(View v){
         String em=email.getText().toString().trim();
@@ -83,6 +97,28 @@ public class Login extends AppCompatActivity {
                             intent.putExtra("name", name2);
                             intent.putExtra("email", em);
                             startActivity(intent);
+                            DB = new DBHelper(Login.this);
+                            btnlogin.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    String user = email.getText().toString();
+                                    String pass = password.getText().toString();
+
+                                    if(user.equals("")||pass.equals(""))
+                                        Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                                    else{
+                                        Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                                        if(checkuserpass==true){
+                                            Toast.makeText(Login.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                                            Intent intent  = new Intent(getApplicationContext(), Home.class);
+                                            intent.putExtra("email",em);
+                                            startActivity(intent);
+                                        }else{
+                                            Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            });
                         } else {
                             user.sendEmailVerification();
                             Toast.makeText(Login.this, "Check your Email to verify your account!", Toast.LENGTH_SHORT).show();
@@ -93,28 +129,8 @@ public class Login extends AppCompatActivity {
                 }
             });
         }else{
-            DB = new DBHelper(this);
-            btnlogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String user = email.getText().toString();
-                    String pass = password.getText().toString();
-
-                    if(user.equals("")||pass.equals(""))
-                        Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                    else{
-                        Boolean checkuserpass = DB.checkusernamepassword(user, pass);
-                        if(checkuserpass==true){
-                            Toast.makeText(Login.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                            Intent intent  = new Intent(getApplicationContext(), Home.class);
-                            intent.putExtra("email",em);
-                            startActivity(intent);
-                        }else{
-                            Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-            });
+            imageView = findViewById(R.id.img);
+            Glide.with(this).load(R.drawable.load).into(imageView);
         }
     }
     public void Sing_up(View v){
@@ -125,7 +141,6 @@ public class Login extends AppCompatActivity {
     public boolean isOnline() {
         ConnectivityManager connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connManager.getActiveNetworkInfo();
-
         if(networkInfo != null && networkInfo.isConnectedOrConnecting()){
             return true;
         }

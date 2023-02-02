@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class Cart extends AppCompatActivity {
+public class Cart5 extends AppCompatActivity {
     myAdapterCart adapter;
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -48,14 +47,7 @@ public class Cart extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
         summ=(TextView) findViewById(R.id.smmm);
         recqnt=(TextView)findViewById(R.id.recqnt);
-        ActionBar actionBar;
-        actionBar = getSupportActionBar();
-//        int color=R.color.bar;
-//        ColorDrawable colorDrawable
-//                = new ColorDrawable(getResources().getColor(color));
-//        actionBar.setBackgroundDrawable(colorDrawable);
-//        actionBar.setTitle(" ");
-        actionBar.hide();
+
 //        Toast.makeText(this,ref.child("Cart").orderByChild("email").equalTo(user.getEmail()).,Toast.LENGTH_LONG).show();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("Users");
@@ -64,7 +56,7 @@ public class Cart extends AppCompatActivity {
         ref = database.getReference();
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.productlist);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Cart.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(Cart5.this));
         ref.child("Cart").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -90,8 +82,7 @@ public class Cart extends AppCompatActivity {
                     ImageView imgf=(ImageView) findViewById(R.id.imgf);
                     Button b=(Button) findViewById(R.id.btn);
                     b.setText("");
-//                    b.setEnabled(false);
-                    b.setVisibility(View.INVISIBLE);
+                    b.setBackgroundColor(getResources().getColor(R.color.b));
                     TextView tv=(TextView) findViewById(R.id.smmm);
                     int imgid=getBaseContext().getResources().getIdentifier("emptycartt","drawable",getBaseContext().getPackageName());
                     imgf.setImageResource(imgid);
@@ -109,11 +100,11 @@ public class Cart extends AppCompatActivity {
         });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new myAdapterCart(Cart.this, productList, new myAdapterCart.ItemClickListener() {
+        adapter = new myAdapterCart(Cart5.this, productList, new myAdapterCart.ItemClickListener() {
             @Override
             public void onItemClick(Detail p) {
 //                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
-                Intent intent=new Intent(Cart.this,DetailAnnoucement.class);
+                Intent intent=new Intent(Cart5.this,DetailAnnoucement.class);
                 intent.putExtra("name",p.name_of_announcement);
                 intent.putExtra("price",p.price_of_announcement);
                 intent.putExtra("type",p.type_of_announcement);
@@ -171,30 +162,30 @@ public class Cart extends AppCompatActivity {
 //        }
 
     public void announcements(View view) {
-        Intent intent = new Intent(Cart.this, Announcements.class);
+        Intent intent = new Intent(Cart5.this, Announcements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
     public void Fav(View view) {
-        Intent intent = new Intent(Cart.this, Favorite2.class);
+        Intent intent = new Intent(Cart5.this, Favorite2.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Profile(View view) {
-        Intent intent = new Intent(Cart.this, Profile.class);
+        Intent intent = new Intent(Cart5.this, Profile.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void addannouncements(View view) {
-        Intent intent = new Intent(Cart.this, AddAnnouncements.class);
+        Intent intent = new Intent(Cart5.this, AddAnnouncements.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 
     public void Home(View view) {
-        Intent intent = new Intent(Cart.this, Home.class);
+        Intent intent = new Intent(Cart5.this, Home.class);
         intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
 

@@ -28,6 +28,14 @@
             android:layout_alignParentBottom="true"
             />
     </RelativeLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:id="@+id/img"
+                android:layout_marginTop="260dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +74,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/please_enter_name"
                 android:layout_marginStart="40dp"
@@ -168,17 +176,17 @@
 <!--                android:textStyle="bold"/>-->
             <Button
                 android:id="@+id/btnlogin"
-                android:layout_width="150dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="@string/loginn"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:backgroundTint="#715CF8"
-                android:onClick="sing_in"
-                android:textSize="19dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/button_border"
-                android:fontFamily="@font/poppinsblack"
-                />
+                android:backgroundTint="#715CF8"
+                android:fontFamily="@font/sscendantserifmedium"
+                android:onClick="sing_in"
+                android:text="@string/loginn"
+                android:textSize="19dp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
@@ -200,5 +208,5 @@
             />
 
     </FrameLayout>
-
+    </FrameLayout>
 </LinearLayout>

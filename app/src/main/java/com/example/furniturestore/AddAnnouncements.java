@@ -1,6 +1,7 @@
 package com.example.furniturestore;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -32,8 +33,15 @@ public class AddAnnouncements extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_add_announcements);
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
         EDname_of_announcement = (EditText) findViewById(R.id.Name);
         EDurl_of_the_announcement_dimensions = (EditText) findViewById(R.id.UrlD);
         EDurl_of_the_announcement_image = (EditText) findViewById(R.id.Url);

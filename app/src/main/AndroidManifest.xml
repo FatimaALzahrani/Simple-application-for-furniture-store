@@ -70,6 +70,9 @@
             android:name=".Favorite"
             android:exported="false" />
         <activity
+        android:name=".Favorite2"
+        android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>

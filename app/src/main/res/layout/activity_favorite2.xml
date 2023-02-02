@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Favorite">
+    tools:context=".Favorite2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +25,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="5dp"
-            android:onClick="Profile"
             >
             <!--            <ImageView-->
             <!--                android:layout_width="wrap_content"-->
@@ -81,12 +80,9 @@
             <!--            android:layout_height="360dp"-->
             <!--            android:layout_below="@id/home" />-->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productlist"
+                android:id="@+id/idRVCourse"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/home"
-                android:layout_marginBottom="20dp"
-                 />
+                android:layout_height="match_parent" />
 
             <ImageView
                 android:id="@+id/imgf"
@@ -132,7 +128,7 @@
                 android:layout_width="64dp"
                 android:layout_height="70dp"
                 app:srcCompat="@drawable/cart"
-               />
+                android:onClick="Cart"/>
 
             <!--            <View-->
             <!--                android:layout_width="2dp"-->

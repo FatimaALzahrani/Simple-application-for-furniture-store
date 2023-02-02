@@ -1,6 +1,7 @@
 package com.example.furniturestore;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -57,6 +58,14 @@ public class Announcements extends AppCompatActivity {
 //        recview = (RecyclerView) findViewById(R.id.productlist);
         searchView=(SearchView) findViewById(R.id.searchview);
         searchView.clearFocus();
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
 //___________________________________________
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         ref = database.getReference();

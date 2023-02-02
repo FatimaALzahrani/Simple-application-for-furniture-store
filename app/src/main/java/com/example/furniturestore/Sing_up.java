@@ -1,5 +1,6 @@
 package com.example.furniturestore;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -61,7 +62,14 @@ public class Sing_up extends AppCompatActivity {
         progressBar = findViewById(R.id.signUpProgressBar);
         btnSignUp = findViewById(R.id.btnSignUp);
         login= (TextView) findViewById(R.id.login);
-
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+//        int color=R.color.bar;
+//        ColorDrawable colorDrawable
+//                = new ColorDrawable(getResources().getColor(color));
+//        actionBar.setBackgroundDrawable(colorDrawable);
+//        actionBar.setTitle(" ");
+        actionBar.hide();
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // Initialize Firebase Firestore
