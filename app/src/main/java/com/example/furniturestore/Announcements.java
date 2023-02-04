@@ -265,7 +265,7 @@ public class Announcements extends AppCompatActivity {
 //                Detail d=new Detail(p.name_of_announcement,p.price_of_announcement,p.type_of_announcement,p.color_of_announcement,p.composition_of_announcement,p.durability_of_announcement,p.url_of_the_announcement_dimensions,p.url_of_the_announcement_image);
                                         Intent intent=new Intent(Announcements.this,DetailAnnoucement.class);
                                         intent.putExtra("name",p.name_of_announcement);
-                                        intent.putExtra("price",p.price_of_announcement+" R.S");
+                                        intent.putExtra("price",p.price_of_announcement);
                                         intent.putExtra("type",p.type_of_announcement);
                                         intent.putExtra("color",p.color_of_announcement);
                                         intent.putExtra("composition",p.composition_of_announcement);

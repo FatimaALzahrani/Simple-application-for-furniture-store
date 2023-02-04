@@ -16,7 +16,7 @@
             android:layout_height="123dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="-70dp"
+            android:layout_marginStart="-10dp"
             app:srcCompat="@drawable/topback" />
         <LinearLayout
             android:layout_width="wrap_content"
@@ -61,14 +61,14 @@
 
         <TextView
             android:id="@+id/home"
-            android:fontFamily="@font/stayland"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/stayland"
             android:gravity="center"
             android:text="@string/cart"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#715CF8"
+            android:textColor="#43319F"
             android:textStyle="bold" />
 <FrameLayout
     android:layout_below="@id/home"

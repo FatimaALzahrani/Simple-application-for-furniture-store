@@ -16,7 +16,7 @@
             android:layout_height="123dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="-70dp"
+            android:layout_marginStart="-10dp"
             app:srcCompat="@drawable/topback" />
 
         <LinearLayout
@@ -76,7 +76,7 @@
                 android:gravity="center"
                 android:text="@string/add_announcement"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="#715CF8"
+                android:textColor="#43319F"
                 android:textStyle="bold" />
 
             <EditText
@@ -197,7 +197,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
-                android:background="@drawable/button_border"
+                android:backgroundTint="#8D238B"
                 android:text="@string/add_new_announcement" />
 
         </LinearLayout>
@@ -242,7 +242,7 @@
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="70dp"
-                app:srcCompat="@drawable/addannouncements2" />
+                app:srcCompat="@drawable/addannouncements3" />
             <!--            <View-->
             <!--                android:layout_width="2dp"-->
             <!--                android:layout_height="70dp"-->

@@ -14,11 +14,11 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_width="400dp"
+                android:layout_height="130dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="-185dp"
+                android:layout_marginStart="-100dp"
                 app:srcCompat="@drawable/topback" />
 
             <ImageView
@@ -44,7 +44,7 @@
                 android:layout_marginStart="20dp"
                 android:text="@string/create_new_account"
                 android:textStyle="bold"
-                android:textColor="#715CF8"
+                android:textColor="#43319F"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 />
             <TextView
@@ -58,7 +58,7 @@
                 android:text="@string/already_registered_login"
                 android:textStyle="bold"
                 android:onClick="login"
-                android:textColor="#715CF8"
+                android:textColor="#4229C4"
                 />
             <TextView
                 android:fontFamily="@font/ascendantserifregular"
@@ -204,9 +204,8 @@
                 android:text="@string/sing_upp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#715CF8"
+                android:backgroundTint="#8D238B"
                 android:onClick="Home"
-                android:background="@drawable/button_border"
                 />
 
         </LinearLayout>

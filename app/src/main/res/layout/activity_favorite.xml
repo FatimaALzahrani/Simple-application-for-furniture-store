@@ -143,7 +143,7 @@
                 android:layout_width="90dp"
                 android:layout_height="70dp"
                 android:onClick="addannouncements"
-                app:srcCompat="@drawable/addannouncements" />
+                app:srcCompat="@drawable/addannouncements0" />
 
             <!--            <View-->
             <!--                android:layout_width="2dp"-->

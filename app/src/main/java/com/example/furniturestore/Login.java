@@ -69,7 +69,7 @@ public class Login extends AppCompatActivity {
             email.requestFocus();
             return;
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(em).matches()) {
+        if(em.length()<7 || !em.contains("@") || !em.contains(".")) {//!Patterns.EMAIL_ADDRESS.matcher(em).matches()
             email.setError("Please enter a vaild email!");
             email.requestFocus();
             return;
@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
             password.requestFocus();
             return;
         }
-        if(pass.length()<8){
+        if(pass.length()<6){
             password.setError("Min password length is 6 characters!");
             password.requestFocus();
             return;

@@ -15,7 +15,7 @@
             android:layout_height="123dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="-70dp"
+            android:layout_marginStart="-10dp"
             app:srcCompat="@drawable/topback" />
 
         <LinearLayout
@@ -49,10 +49,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/buttonback"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/buttonback" />
 
 
     </RelativeLayout>
@@ -67,11 +68,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:fontFamily="@font/stayland"
+            android:gravity="center"
             android:text="@string/all_announcement"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="#715CF8"
+            android:textColor="#43319F"
             android:textStyle="bold" />
 
         <SearchView

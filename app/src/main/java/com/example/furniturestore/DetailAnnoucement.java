@@ -102,7 +102,7 @@ public class DetailAnnoucement extends AppCompatActivity {
         String type=(getIntent().getStringExtra("type"));
         String color=(getIntent().getStringExtra("color"));
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        Detail d=new Detail(Name,dimensions,image,Price,type,composition,durability,color,user.getEmail(), user.getPhoneNumber());
+            Detail d=new Detail(Name,image,Price,type,color,composition,durability,dimensions,user.getEmail(), user.getPhoneNumber());
             String id = databaseReference.push().getKey();
             databaseReference.child(id).setValue(d);
             Toast.makeText(DetailAnnoucement.this, "Announcement added to cart", Toast.LENGTH_SHORT).show();

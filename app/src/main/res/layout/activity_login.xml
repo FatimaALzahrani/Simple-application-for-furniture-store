@@ -15,18 +15,18 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="-10dp"
+                android:layout_marginStart="-200dp"
                 app:srcCompat="@drawable/topback" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-10dp"
-            android:src="@drawable/buttonback"
-            android:layout_alignParentBottom="true"
-            />
+
+            <ImageView
+                android:layout_width="500sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-10dp"
+                android:src="@drawable/buttonback" />
     </RelativeLayout>
         <FrameLayout
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                 android:gravity="center"
                 android:text="@string/login"
                 android:textStyle="bold"
-                android:textColor="#715CF8"
+                android:textColor="#43319F"
                 android:fontFamily="@font/stayland"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 />
@@ -61,7 +61,7 @@
                 android:fontFamily="@font/stayland"
                 android:gravity="center"
                 android:text="@string/sign_in_to_continue"
-                android:textColor="#715CF8"
+                android:textColor="#4229C4"
                 android:textStyle="bold" />
 
 <!--            <ImageView-->
@@ -103,7 +103,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
                     android:text="@string/stt"
                     android:textColor="#B30606"
                     android:textSize="20dp"/>
@@ -111,7 +110,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
                 android:text="@string/emil"
                 android:fontFamily="@font/ascendantserifregular"
                 />
@@ -139,7 +137,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
                 android:text="@string/stt"
                 android:textColor="#B30606"
                 android:textSize="20dp"/>
@@ -148,7 +145,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="5dp"
                 android:text="@string/Enter_Pass"
                 />
         </LinearLayout>
@@ -180,8 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/button_border"
-                android:backgroundTint="#715CF8"
+                android:backgroundTint="#8D238B"
                 android:fontFamily="@font/sscendantserifmedium"
                 android:onClick="sing_in"
                 android:text="@string/loginn"
