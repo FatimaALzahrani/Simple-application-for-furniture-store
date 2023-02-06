@@ -103,6 +103,18 @@ public class Home extends AppCompatActivity {
             @Override
             public void onReselectItem(MeowBottomNavigation.Model item) {
 //                Toast.makeText(getApplicationContext(),"Reselect " +item.getId(),Toast.LENGTH_LONG).show();
+                Fragment fragment;
+                if (item.getId() == 2) {
+                    fragment=new Announcements2();
+                }else if (item.getId() == 3) {
+                    fragment=new AddAnnouncements2();
+                }else if (item.getId() == 4) {
+                    fragment=new Cart22();
+                }else if(item.getId()==5){
+                    fragment=new Profile2();
+                } else
+                    fragment = new Home2();
+                loadFragment(fragment);
             }
         });
 //        final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -252,6 +264,11 @@ public void announcements(View view) {
     }
     public void Favorite(View view) {
         Intent intent = new Intent(Home.this, Favorite2.class);
+        startActivity(intent);
+    }
+    public void map(View v){
+        Intent intent=new Intent(Home.this,MapsActivity.class);
+        intent.putExtra("email", getIntent().getStringExtra("email"));
         startActivity(intent);
     }
 }

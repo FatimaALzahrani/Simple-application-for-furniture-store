@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -79,7 +81,7 @@ public class DetailAnnoucement2 extends Fragment {
             String type=(this.getArguments().getString("type"));
             String color=(this.getArguments().getString("color"));
             name.setText(Name);
-            price.setText(Price+" R.S");
+            price.setText(Price);
             Composition.setText(composition);
             Durability.setText(durability);
             Glide.with(imageView2.getContext()).load(this.getArguments().getString("dimensions")).into(imageView2);
@@ -97,6 +99,13 @@ public class DetailAnnoucement2 extends Fragment {
             });
 
         return view;
+    }
+    public void back(View v){
+        Fragment fragment=new Announcements2();
+        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frag,fragment);
+        fragmentTransaction.commit();
     }
 
 }

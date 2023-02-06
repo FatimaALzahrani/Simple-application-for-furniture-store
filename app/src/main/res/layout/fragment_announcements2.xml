@@ -52,7 +52,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="50dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="30dp"
             android:src="@drawable/buttonback" />
 
 

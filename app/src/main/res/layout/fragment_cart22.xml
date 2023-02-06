@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-                android:textSize="35dp"
+                android:textSize="27dp"
                 android:textStyle="bold" />
 
             <Button
@@ -101,12 +101,10 @@
         android:textStyle="bold" />
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="325dp"
-            android:layout_above="@id/total"
-            android:layout_below="@id/home"
             android:id="@+id/frame"
-           >
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_below="@id/home">
             <!--        <ListView-->
             <!--            android:id="@+id/productlist"-->
             <!--            android:layout_width="match_parent"-->
@@ -115,8 +113,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productlist"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="450dp"
                 android:layout_below="@id/home"
+
                 android:layout_marginBottom="0dp" />
 
             <ImageView

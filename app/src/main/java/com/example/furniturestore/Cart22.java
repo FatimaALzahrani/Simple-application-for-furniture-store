@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,11 +65,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Cart22#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Cart22 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -171,16 +168,21 @@ public class Cart22 extends Fragment {
         adapter = new myAdapterCart(getContext(), productList, new myAdapterCart.ItemClickListener() {
             @Override
             public void onItemClick(Detail p) {
-                Intent intent = new Intent(getContext(), DetailAnnoucement.class);
-                intent.putExtra("name", p.name_of_announcement);
-                intent.putExtra("price", p.price_of_announcement);
-                intent.putExtra("type", p.type_of_announcement);
-                intent.putExtra("color", p.color_of_announcement);
-                intent.putExtra("composition", p.composition_of_announcement);
-                intent.putExtra("durability", p.durability_of_announcement);
-                intent.putExtra("dimensions", p.url_of_the_announcement_dimensions);
-                intent.putExtra("image", p.url_of_the_announcement_image);
-                startActivity(intent);
+                Fragment fragment = new DetailAnnoucement2();
+                Bundle bundle = new Bundle();
+                bundle.putString("name",p.name_of_announcement);
+                bundle.putString("price",p.price_of_announcement);
+                bundle.putString("type",p.type_of_announcement);
+                bundle.putString("color",p.color_of_announcement);
+                bundle.putString("composition",p.composition_of_announcement);
+                bundle.putString("durability",p.durability_of_announcement);
+                bundle.putString("dimensions",p.url_of_the_announcement_dimensions);
+                bundle.putString("image",p.url_of_the_announcement_image);
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frag,fragment);
+                fragmentTransaction.commit();
             }
         });
         recyclerView.setAdapter(adapter);

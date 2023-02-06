@@ -168,9 +168,10 @@ public class Sing_up extends AppCompatActivity {
                                 Boolean insert = DB.insertData(edtFullName.getText().toString(),pass,user,edtMobile.getText().toString());
                                 if(insert==true){
                                     Toast.makeText(Sing_up.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent=new Intent(Sing_up.this,Login.class);
                                     DB_SQLlite DB=new DB_SQLlite(Sing_up.this);
                                     DB.insertUser(edtFullName.getText().toString(),user,pass,edtMobile.getText().toString());
-                                    Intent intent = new Intent(getApplicationContext(),Home.class);
+//                                    Intent intent = new Intent(getApplicationContext(),Home.class);
                                     intent.putExtra("email",user);
                                     startActivity(intent);
                                 }else{
