@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -41,7 +42,7 @@ public class Cart extends AppCompatActivity {
     int sum=0;
     private TextView summ,recqnt;
     private NumberPicker np;
-
+    public static String count ="0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,10 +71,12 @@ public class Cart extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 productList.clear();
                 sum=0;
+                int co=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Map <Detail,Integer> mp;
                     Detail product = snapshot.getValue(Detail.class);
                     if(product.getEmail().equals(user.getEmail())) {
+                        co++;
                         sum+=Integer.parseInt(product.getPrice_of_announcement().substring(0,product.getPrice_of_announcement().length()-4));//*product.getNumber();//.substring(0,product.getPrice_of_announcement().length()-4));
                         product.setPrice_of_announcement(product.getPrice_of_announcement());//*product.getNumber())+" R.S");
                         productList.add(product);
@@ -83,6 +86,7 @@ public class Cart extends AppCompatActivity {
                     }
                     adapter.notifyDataSetChanged();
                 }
+                count=""+co;
                 Collections.reverse(productList);
                 //Query query = ref.child("Cart").orderByChild("email").equalTo(user.getEmail());
                 summ.setText("Total : "+sum+" R.S");

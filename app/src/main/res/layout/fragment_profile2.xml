@@ -1,14 +1,350 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Profile2">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:context=".Profile2">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="410dp"
+                android:layout_height="118dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="-120dp"
+                app:srcCompat="@drawable/topback" />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp">
+
+        <TextView
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/stayland"
+            android:gravity="center"
+            android:text="@string/profile"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#43319F"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:id="@+id/l"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_below="@id/home"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="238dp"
+                android:layout_height="146dp"
+                android:layout_gravity="center"
+                android:src="@drawable/img_3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="520dp"
+                android:background="#F5F5F5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <!--https://icons8.com/icon/14736/customer-->
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/person" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp">
+
+                        <TextView
+                            android:fontFamily="@font/ascendantserifregular"
+                            android:layout_width="122dp"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:textColor="#292727"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+
+                        <!--                    https://icons8.com/icon/8177/ball-point-pen                </LinearLayout>-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="29dp">
+
+                            <TextView
+                                android:id="@+id/username"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:text="@string/username"
+                                android:textColor="@color/black"
+                                android:textSize="15dp"
+                                android:textStyle="italic" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEA" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/pass" />
+                    <!--            https://icons8.com/icon/123340/password-window-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:fontFamily="@font/ascendantserifregular"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/password"
+                                android:textColor="#292727"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/password"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEA" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/email" />
+                    <!--            https://icons8.com/icon/59835/secured-letter-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/email"
+                                android:textColor="#292727"
+                                android:fontFamily="@font/ascendantserifregular"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <!--                            <ImageView-->
+                            <!--                                android:layout_width="30dp"-->
+                            <!--                                android:layout_height="30dp"-->
+                            <!--                                android:layout_alignParentEnd="true"-->
+                            <!--                                android:src="@drawable/pen" />-->
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/email"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEA" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/phone" />
+                    <!--            https://icons8.com/icon/59835/secured-letter-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/phone_number"
+                                android:textColor="#292727"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/ascendantserifregular"
+                                android:textStyle="bold" />
+
+                            <!--                            <ImageView-->
+                            <!--                                android:layout_width="30dp"-->
+                            <!--                                android:layout_height="30dp"-->
+                            <!--                                android:layout_alignParentEnd="true"-->
+                            <!--                                android:src="@drawable/pen" />-->
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/phone_number"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEA" />
+
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/location" />
+                    <!--            https://icons8.com/icon/7880/location-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Location"
+                                android:textColor="#292727"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ascendantserifregular"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="map"
+                            android:text="@string/go_to_google_maps"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:textStyle="italic" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="77dp"
+                    android:background="#EAEAEA" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/Sigout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#8D238B"
+            android:fontFamily="@font/clustdemo"
+            android:text="@string/logout" />
+
+
+</RelativeLayout>
+
+    </FrameLayout>

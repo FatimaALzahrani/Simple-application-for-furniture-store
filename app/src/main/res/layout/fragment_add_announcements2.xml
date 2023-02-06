@@ -1,14 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AddAnnouncements2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="123dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-10dp"
+            app:srcCompat="@drawable/topback" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:onClick="Profile"
+
+            >
+
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:src="@drawable/person"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                app:tint="#D83597" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:text=""
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/buttonback"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/stayland"
+            android:gravity="center"
+            android:text="@string/add_announcement"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#43319F"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:fontFamily="@font/clustdemo"
+            android:hint="@string/name_of_announcement"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/Url"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:fontFamily="@font/clustdemo"
+            android:hint="@string/url_of_the_announcement_image"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/UrlD"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:fontFamily="@font/clustdemo"
+            android:hint="@string/url_of_the_announcement_dimensions"
+            android:paddingStart="16dp" />
+        <EditText
+            android:id="@+id/Composition"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/clustdemo"
+            android:background="@drawable/add_border"
+            android:hint="@string/composition_of_announcement"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/Durability"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:fontFamily="@font/clustdemo"
+            android:hint="@string/durability_of_announcement"
+            android:paddingStart="16dp" />
+
+        <EditText
+            android:id="@+id/Color"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:hint="@string/color_of_announcement"
+            android:fontFamily="@font/clustdemo"
+            android:paddingStart="16dp" />
+        <EditText
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/add_border"
+            android:hint="@string/your_phone_number"
+            android:fontFamily="@font/clustdemo"
+            android:paddingStart="16dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp">
+            <EditText
+                android:id="@+id/Price"
+                android:layout_width="175dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@drawable/add_border"
+                android:fontFamily="@font/clustdemo"
+                android:hint="@string/price_of_announcement"
+                />987645
+
+            <EditText
+                android:id="@+id/Type"
+                android:layout_width="175dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/clustdemo"
+                android:background="@drawable/add_border"
+                android:hint="@string/type_of_announcement"
+                />
+        </LinearLayout>
+
+        <Button
+            android:fontFamily="@font/clustdemo"
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:backgroundTint="#8D238B"
+            android:text="@string/add_new_announcement" />
+
+    </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>

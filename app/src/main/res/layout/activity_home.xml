@@ -6,238 +6,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Home">
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frag"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="123dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="-5dp"
-            app:srcCompat="@drawable/topback" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
-            >
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/person"-->
-<!--                android:layout_gravity="center"-->
-<!--                app:tint="#984878" />-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/name"
-                android:text=""
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:src="@drawable/buttonback"
-            android:layout_alignParentBottom="true"
-            />
-
-    </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp">
-
-            <TextView
-                android:id="@+id/home"
+            <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+                android:id="@+id/navi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/stayland"
-                android:gravity="center"
-                android:text="@string/home_page"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="#43319F"
-                android:textStyle="bold" />
-
-<!--            <TextView-->
-<!--                android:id="@+id/home2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@id/home"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:fontFamily="@font/poppinslight"-->
-<!--                android:gravity="center"-->
-<!--                android:text="hello fatima"-->
-<!--                android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-<!--                android:textColor="@color/purple_700"-->
-<!--                android:textSize="15dp"-->
-<!--                android:textStyle="bold" />-->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="470dp"
-                android:layout_below="@id/home"
-                android:layout_marginTop="10dp"
-                android:background="#F4E9ED"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageView
-                        android:layout_marginTop="15dp"
-                        android:layout_width="400dp"
-                        android:layout_height="380dp"
-                        android:src="@drawable/ex1"/>
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="320dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Text1"
-                        android:layout_marginStart="37dp"
-                        android:fontFamily="@font/clustdemo"
-                        android:textSize="20dp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-
-                        />
-                </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_width="400dp"
-                            android:layout_height="380dp"
-                            android:src="@drawable/ex2"/>
-                        <TextView
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Texxt2"
-                            android:layout_marginStart="37dp"
-                            android:fontFamily="@font/clustdemo"
-                            android:textSize="20dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <ImageView
-                        android:layout_marginTop="15dp"
-                        android:layout_width="400dp"
-                        android:layout_height="400dp"
-                        android:src="@drawable/ex3"/>
-                    <TextView
-                        android:layout_width="320dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Text3"
-                        android:layout_marginStart="37dp"
-                        android:fontFamily="@font/clustdemo"
-                        android:layout_marginTop="5dp"
-                        android:textSize="20dp"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        />
-                </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_width="400dp"
-                            android:layout_height="380dp"
-                            android:src="@drawable/ex4"/>
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Text5"
-                            android:layout_marginStart="37dp"
-                            android:fontFamily="@font/clustdemo"
-                            android:textSize="20dp"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_width="400dp"
-                            android:layout_height="380dp"
-                            android:src="@drawable/ex5"/>
-                        <TextView
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Text4"
-                            android:layout_marginStart="37dp"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/clustdemo"
-                            android:textSize="20dp"
-                            android:gravity="center"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_width="400dp"
-                            android:layout_height="380dp"
-                            android:src="@drawable/ex6"/>
-                        <TextView
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Text6"
-                            android:layout_marginStart="37dp"
-                            android:fontFamily="@font/clustdemo"
-                            android:textSize="20dp"
-                            android:gravity="center"
-                            android:layout_marginTop="5dp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
-                            />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-<!--            <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                app:mbn_backgroundBottomColor="#ffffff"
+                app:mbn_circleColor="#ffffff"
+                app:mbn_countBackgroundColor="#670862"
+                app:mbn_countTextColor="#ffffff"
+                app:mbn_defaultIconColor="#90a4ae"
+                app:mbn_rippleColor="#2f424242"
+                app:mbn_selectedIconColor="#3c415e"
+                app:mbn_shadowColor="#1f212121" />
+</RelativeLayout>
+    <!--            <androidx.coordinatorlayout.widget.CoordinatorLayout-->
 <!--                xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--                xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--                xmlns:tools="http://schemas.android.com/tools"-->
@@ -271,69 +62,69 @@
 <!--                    app:layout_anchor="@id/bottomAppBar" />-->
 
 <!--            </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+<!--            &lt;!&ndash; التحت &ndash;&gt;-->
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="8dp"-->
+<!--                android:background="#1C1819"-->
+<!--                android:layout_above="@id/nav"-->
+<!--                android:layout_marginBottom="-3dp"-->
+<!--                android:layout_alignParentEnd="true" />-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/nav"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="70dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:background="#F5F5F5"-->
+<!--                android:orientation="horizontal">-->
+<!--                <ImageView-->
+<!--                    android:layout_width="64dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:onClick="Profile"-->
+<!--                    app:srcCompat="@drawable/profile"-->
+<!--                    android:layout_marginStart="10dp"/>-->
+<!--                &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_width="2dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_height="70dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:background="#1C1819"&ndash;&gt;-->
+<!--                &lt;!&ndash;                />&ndash;&gt;-->
+<!--                <ImageView-->
+<!--                    android:layout_width="64dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    app:srcCompat="@drawable/cart"-->
+<!--                    android:onClick="Cart"/>-->
+<!--                &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_width="2dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_height="70dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:background="#1C1819"&ndash;&gt;-->
+<!--                &lt;!&ndash;                />&ndash;&gt;-->
+<!--                <ImageView-->
+<!--                    android:layout_width="90dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:onClick="addannouncements"-->
+<!--                    app:srcCompat="@drawable/addannouncements0" />-->
+<!--                &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_width="2dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_height="70dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:background="#1C1819"&ndash;&gt;-->
+<!--                &lt;!&ndash;                />&ndash;&gt;-->
+<!--                <ImageView-->
+<!--                    android:layout_width="90dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:onClick="announcements"-->
+<!--                    app:srcCompat="@drawable/announcements" />-->
+<!--                &lt;!&ndash;            <View&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_width="2dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:layout_height="70dp"&ndash;&gt;-->
+<!--                &lt;!&ndash;                android:background="#1C1819"&ndash;&gt;-->
+<!--                &lt;!&ndash;                />&ndash;&gt;-->
+<!--                <ImageView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    app:srcCompat="@drawable/home2"-->
+<!--                    />-->
+<!--            </LinearLayout>-->
+<!--        </RelativeLayout>-->
 
-            <!-- التحت -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="#1C1819"
-                android:layout_above="@id/nav"
-                android:layout_marginBottom="-3dp"
-                android:layout_alignParentEnd="true" />
-            <LinearLayout
-                android:id="@+id/nav"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:background="#F5F5F5"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="70dp"
-                    android:onClick="Profile"
-                    app:srcCompat="@drawable/profile"
-                    android:layout_marginStart="10dp"/>
-                <!--            <View-->
-                <!--                android:layout_width="2dp"-->
-                <!--                android:layout_height="70dp"-->
-                <!--                android:background="#1C1819"-->
-                <!--                />-->
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="70dp"
-                    app:srcCompat="@drawable/cart"
-                    android:onClick="Cart"/>
-                <!--            <View-->
-                <!--                android:layout_width="2dp"-->
-                <!--                android:layout_height="70dp"-->
-                <!--                android:background="#1C1819"-->
-                <!--                />-->
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:onClick="addannouncements"
-                    app:srcCompat="@drawable/addannouncements0" />
-                <!--            <View-->
-                <!--                android:layout_width="2dp"-->
-                <!--                android:layout_height="70dp"-->
-                <!--                android:background="#1C1819"-->
-                <!--                />-->
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="70dp"
-                    android:onClick="announcements"
-                    app:srcCompat="@drawable/announcements" />
-                <!--            <View-->
-                <!--                android:layout_width="2dp"-->
-                <!--                android:layout_height="70dp"-->
-                <!--                android:background="#1C1819"-->
-                <!--                />-->
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="70dp"
-                    app:srcCompat="@drawable/home2"
-                    />
-            </LinearLayout>
-        </RelativeLayout>
-    </FrameLayout>
+</FrameLayout>

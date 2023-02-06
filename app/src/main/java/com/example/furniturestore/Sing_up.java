@@ -86,7 +86,7 @@ public class Sing_up extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty(txtFullName)) {
                     if (!TextUtils.isEmpty(txtEmail)) {
-                        if (txtEmail.matches(emailPattern)) {
+                        if (txtEmail.length()>7 && txtEmail.contains("@") && txtEmail.contains(".")) {//txtEmail.matches(emailPattern)
                             if (!TextUtils.isEmpty(txtMobile)) {
                                 if (txtMobile.length() == 10) {
                                     if (!TextUtils.isEmpty(txtPassword)) {
