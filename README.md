@@ -30,9 +30,12 @@ He can also determine his location on the map and access his personal informatio
 
 ## Implementation
 ### 1. ScreenShot
-
+<img width="246" alt="screen1" src="https://user-images.githubusercontent.com/107775566/217038710-3172b1df-9c09-4a4e-b839-36d0f40ac04b.png">
+<img width="260" alt="screen2" src="https://user-images.githubusercontent.com/107775566/217038768-ec318ddd-6dd5-4463-9d76-4674b09bfaf4.png">
 
 ### 2. Demo
+https://user-images.githubusercontent.com/107775566/217042084-b8d31250-4cb6-44f5-8c00-eda93a1be8a7.mp4
+
 
 
 ## Conclusion and Future Work
